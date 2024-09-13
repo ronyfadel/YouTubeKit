@@ -29,6 +29,10 @@ public extension Collection where Element == Stream {
     func streams(withExactResolution resolution: Int) -> [Stream] {
         filter { $0.itag.videoResolution == resolution }
     }
+
+    func streams(withExactAudioBitrate audioBitrate: Int) -> [Stream] {
+        filter { $0.itag.audioBitrate == audioBitrate }
+    }
     
     func filter(byResolution resolution: (Int?) -> Bool) -> [Stream] {
         filter { resolution($0.itag.videoResolution) }
